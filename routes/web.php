@@ -14,9 +14,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CheckoutController; 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/login');
 
 // --- AUTH ROUTES ---
 Route::get('/login', UserLogin::class)->name('login');
