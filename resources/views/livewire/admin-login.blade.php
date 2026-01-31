@@ -73,9 +73,7 @@
     
                 {{-- Footer Info --}}
                 <div class="mt-6 text-center space-y-3">
-                    <div class="mt-4 p-3 bg-amber-50 rounded text-xs text-amber-800 border border-amber-100">
-                        <strong>Demo Admin:</strong> admin@test.com / password
-                    </div>
+
                 </div>
     
             </div>

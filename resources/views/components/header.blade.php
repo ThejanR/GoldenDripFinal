@@ -43,21 +43,21 @@
                         </span>
                         
                         {{-- ADMIN DASHBOARD BUTTON --}}
-                        @if(Auth::user()->email === 'admin@gmail.com') 
-                            <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center px-3 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-semibold rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-200">
-                                <i class="fas fa-cog mr-1"></i>Admin
+                        @if(Auth::user()->user_type === 'admin') 
+                            <a href="{{ route('admin.dashboard') }}" class="text-gray-600 hover:text-purple-600 font-medium transition-colors">
+                                <i class="fas fa-cog mr-1"></i> Admin
                             </a>
                         @endif
 
                         {{-- PROFILE BUTTON --}}
-                        <a href="{{ route('profile.show') }}" class="inline-flex items-center px-3 py-2 bg-gradient-to-r from-gray-500 to-gray-600 text-white text-sm font-semibold rounded-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-200">
-                            <i class="fas fa-user mr-1"></i>Profile
+                        <a href="{{ route('profile.show') }}" class="text-gray-600 hover:text-amber-600 font-medium transition-colors">
+                            <i class="fas fa-user mr-1"></i> Profile
                         </a>
 
                         <form method="POST" action="{{ route('logout') }}" class="inline">
                             @csrf
-                            <button type="submit" class="inline-flex items-center px-3 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white text-sm font-semibold rounded-lg hover:from-red-600 hover:to-red-700 transition-all duration-200">
-                                <i class="fas fa-sign-out-alt mr-1"></i>Logout
+                            <button type="submit" class="text-gray-600 hover:text-red-600 font-medium transition-colors">
+                                <i class="fas fa-sign-out-alt mr-1"></i> Logout
                             </button>
                         </form>
                     </div>

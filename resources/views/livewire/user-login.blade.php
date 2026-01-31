@@ -83,10 +83,7 @@
                         </a>
                     </p>
                     
-                    {{-- Demo Credentials --}}
-                    <div class="mt-4 p-3 bg-amber-50 rounded text-xs text-amber-800 border border-amber-100">
-                        <strong>Demo User:</strong> user@test.com / password
-                    </div>
+
                 </div>
     
             </div>

@@ -25,9 +25,7 @@
                 
                 {{-- Hero Icon/Image --}}
                 <div class="flex justify-center">
-                    <div class="w-64 h-64 bg-amber-200 rounded-full flex items-center justify-center shadow-lg transform hover:scale-105 transition duration-300">
-                        <i class="fas fa-coffee text-8xl text-amber-600"></i>
-                    </div>
+                    <img src="{{ asset('images/bg homepage.png') }}" class="w-64 h-64 object-contain drop-shadow-lg transform hover:scale-105 transition duration-300" alt="Welcome Coffee">
                 </div>
             </div>
             

@@ -60,7 +60,7 @@
                     @endif
 
                     <div>
-                        <x-button class="w-full justify-center bg-amber-600 hover:bg-amber-700">
+                        <x-button class="w-full justify-center text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition duration-200" style="background-color: #893A17;">
                             {{ __('Register') }}
                         </x-button>
                     </div>
