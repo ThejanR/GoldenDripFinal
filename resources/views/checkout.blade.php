@@ -139,7 +139,7 @@
                         <div>
                             <button type="submit" class="w-full text-white font-semibold py-4 px-6 rounded-md transition-colors flex items-center justify-center hover:opacity-90" style="background-color: #893A17;">
                                 <i class="fas fa-lock mr-2"></i>
-                                Pay Now
+                                Proceed
                             </button>
                         </div>
                     </form>
