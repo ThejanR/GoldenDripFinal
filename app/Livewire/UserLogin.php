@@ -18,23 +18,34 @@ class UserLogin extends Component
             'password' => 'required',
         ]);
 
-        // 2. Attempt Login (Safe Method)
-        // Instead of calling the API, we ask Laravel directly: "Does this password match?"
-        if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+        // 2. Attempt Login with 2FA Support
+        $user = \App\Models\User::where('email', $this->email)->first();
+
+        if ($user && \Illuminate\Support\Facades\Hash::check($this->password, $user->password)) {
             
             // 3. Security Check: Is this actually a User?
-            if (auth()->user()->user_type !== 'user') {
-                Auth::logout(); // Kick them out if they are an Admin
+            if ($user->user_type !== 'user') {
                 session()->flash('error', 'This login form is for Standard Users only.');
                 return;
             }
 
-            // 4. Success! Redirect to dashboard
-            session()->regenerate(); // specific security practice for logins
+            // 4. Check for Two-Factor Authentication
+            if ($user->two_factor_secret && $user->two_factor_confirmed_at) {
+                session()->put([
+                    'login.id' => $user->getKey(),
+                    'login.remember' => false,
+                ]);
+                
+                return redirect()->route('two-factor.login');
+            }
+
+            // 5. Success! No 2FA, Log them in
+            Auth::login($user);
+            session()->regenerate();
             return redirect()->route('dashboard');
         }
 
-        // 5. Handle Failure
+        // 6. Handle Failure
         session()->flash('error', 'Invalid login credentials');
     }
 

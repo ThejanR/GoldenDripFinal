@@ -31,11 +31,15 @@
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
                         @if ($showingConfirmation)
-                            {{ __('To finish enabling two factor authentication, enter the setup key into your phone\'s authenticator application and provide the generated OTP code.') }}
+                            {{ __('To finish enabling two factor authentication, scan the following QR code using your phone\'s authenticator application or enter the setup key and provide the generated OTP code.') }}
                         @else
-                            {{ __('Two factor authentication is now enabled. Enter the setup key into your phone\'s authenticator application.') }}
+                            {{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application or enter the setup key.') }}
                         @endif
                     </p>
+                </div>
+
+                <div class="mt-4 p-2 inline-block bg-white">
+                    {!! $this->user->twoFactorQrCodeSvg() !!}
                 </div>
 
                 <div class="mt-4 max-w-xl" x-data="{ copied: false, secret: '{{ decrypt($this->user->two_factor_secret) }}' }">
