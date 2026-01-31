@@ -240,11 +240,26 @@
                     if (data.success) {
                         // Clear cart
                         localStorage.removeItem('cart');
-                        alert('Order confirmed! Your coffee will be ready soon.');
-                        // Redirect Home
-                        window.location.href = "{{ route('dashboard') }}";
+                        
+                        Swal.fire({
+                            title: 'Order Confirmed!',
+                            text: 'Your coffee is being brewed nicely! ☕',
+                            icon: 'success',
+                            confirmButtonText: 'View Dashboard',
+                            confirmButtonColor: '#893A17',
+                            background: '#FDF8F6',
+                            color: '#4A3728'
+                        }).then((result) => {
+                            window.location.href = "{{ route('dashboard') }}";
+                        });
+
                     } else {
-                        alert('Error processing order. Please try again.');
+                        Swal.fire({
+                            title: 'Order Failed',
+                            text: 'Please try again.',
+                            icon: 'error',
+                            confirmButtonColor: '#893A17'
+                        });
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
                     }
