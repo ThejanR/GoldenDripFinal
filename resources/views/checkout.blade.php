@@ -172,7 +172,8 @@
                 orderItems.innerHTML = '';
 
                 cart.forEach(item => {
-                    const itemTotal = item.price * item.quantity;
+                    const price = parseFloat(item.price);
+                    const itemTotal = price * item.quantity;
                     subtotalAmount += itemTotal;
                     
                     const cartItem = document.createElement('div');
@@ -180,7 +181,7 @@
                     cartItem.innerHTML = `
                         <div>
                             <h4 class="font-medium text-gray-900">${item.name}</h4>
-                            <p class="text-sm text-gray-600">$${item.price.toFixed(2)} x ${item.quantity}</p>
+                            <p class="text-sm text-gray-600">$${price.toFixed(2)} x ${item.quantity}</p>
                         </div>
                         <span class="font-semibold text-amber-600">$${itemTotal.toFixed(2)}</span>
                     `;
