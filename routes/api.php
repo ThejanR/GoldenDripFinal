@@ -40,4 +40,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Update Order Status (Admin/Staff)
     Route::patch('/orders/{id}/status', [OrderController::class, 'updateStatus']);
+
+    // --- Product Management (Admin) ---
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::put('/products/{id}', [ProductController::class, 'update']);
+    Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 });
