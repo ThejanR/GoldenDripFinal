@@ -65,14 +65,7 @@
                         @error('password') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                     </div>
 
-                    {{-- Forgot Password Link --}}
-                    <div class="flex items-center justify-end">
-                        @if (Route::has('password.request'))
-                            <a class="text-sm font-medium text-amber-600 hover:text-amber-500" href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
-                            </a>
-                        @endif
-                    </div>
+
     
                     {{-- Submit Button --}}
                     <button type="submit" 
