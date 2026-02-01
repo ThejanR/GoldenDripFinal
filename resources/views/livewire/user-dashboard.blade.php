@@ -16,10 +16,10 @@
                                 style="background-color: #893A17;">
                             Explore Menu
                         </a>
-                        <button class="inline-flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md bg-transparent hover:bg-amber-50 transition-colors" 
+                        <a href="{{ route('my-orders') }}" class="inline-flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md bg-transparent hover:bg-amber-50 transition-colors" 
                                 style="border-color: #893A17; color: #893A17;">
-                            Our Story
-                        </button>
+                            View Orders
+                        </a>
                     </div>
                 </div>
                 

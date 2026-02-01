@@ -48,6 +48,9 @@ Route::middleware([
         return redirect()->route('user.dashboard');
     })->name('dashboard');
 
+    // Order History
+    Route::get('/my-orders', [App\Http\Controllers\OrderHistoryController::class, 'index'])->name('my-orders');
+
     // Admin Panel
     // Protected by 'auth' and the 'access-admin' Gate
     Route::prefix('admin')->middleware(['auth', 'can:access-admin'])->group(function () {

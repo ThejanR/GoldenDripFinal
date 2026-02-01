@@ -50,6 +50,10 @@
                         @endif
 
                         {{-- PROFILE BUTTON --}}
+                        <a href="{{ route('my-orders') }}" class="text-gray-600 hover:text-amber-600 font-medium transition-colors">
+                            <i class="fas fa-shopping-bag mr-1"></i> Orders
+                        </a>
+
                         <a href="{{ route('profile.show') }}" class="text-gray-600 hover:text-amber-600 font-medium transition-colors">
                             <i class="fas fa-user mr-1"></i> Profile
                         </a>
@@ -102,6 +106,10 @@
             @auth
                 <div class="mb-3 text-sm text-gray-600">Welcome, {{ Auth::user()->name }}</div>
                 
+                <a href="{{ route('my-orders') }}" class="block px-3 py-2 rounded hover:bg-gray-100 text-gray-800">
+                    <i class="fas fa-shopping-bag mr-2"></i>Orders
+                </a>
+
                 <a href="{{ route('profile.show') }}" class="block px-3 py-2 rounded hover:bg-gray-100 text-gray-800">
                     <i class="fas fa-user mr-2"></i>Profile
                 </a>

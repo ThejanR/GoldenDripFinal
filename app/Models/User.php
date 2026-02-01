@@ -29,6 +29,14 @@ class User extends Authenticatable
         return $this->user_type === 'admin' || in_array($this->email, ['admin@test.com', 'admin@gmail.com']);
     }
 
+    /**
+     * Get the orders for the user.
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     protected $hidden = [
         'password',
         'remember_token',
