@@ -12,23 +12,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Create Admin User (For Dashboard Login)
+        // Create Admin User
         User::factory()->create([
             'name' => 'Admin User',
             'email' => 'admin@test.com',
             'password' => bcrypt('password'),
-            'user_type' => 'admin', // 👈 FIXED: Standardized column name to grant admin access
+            'user_type' => 'admin',
         ]);
 
-        // 2. Create Test User (For Checkout Testing)
+        // Create Test User
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'user@test.com',
             'password' => bcrypt('password'),
-            'user_type' => 'user', // 👈 FIXED: Ensures regular users are correctly categorized
+            'user_type' => 'user',
         ]);
 
-        // 3. Runs your ProductSeeder.php file to fill the menu.
+        // Run ProductSeeder
         $this->call(ProductSeeder::class);
     }
 }

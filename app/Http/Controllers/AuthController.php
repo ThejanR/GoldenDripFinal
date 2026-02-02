@@ -35,18 +35,18 @@ class AuthController extends Controller
     // Login User
     public function login(Request $request)
     {
-        // 1. Validate Input
+        // Validate Input
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // 2. Check Credentials
+        // Check Credentials
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json(['message' => 'Invalid login credentials'], 401);
         }
 
-        // 3. Generate Token
+        // Generate Token
         $user = Auth::user();
         $token = $user->createToken('api_token')->plainTextToken;
 

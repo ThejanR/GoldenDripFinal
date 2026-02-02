@@ -17,7 +17,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'user_type', // 👈 Standardized column name for mass assignment
+        'user_type',
     ];
 
     /**

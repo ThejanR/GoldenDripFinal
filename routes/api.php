@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\OrderItemController;
 
-// --- Public Routes (No Login Required) ---
+// Public Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -17,7 +17,7 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::get('/categories', [CategoryController::class, 'index']);
 
-// --- Protected Routes (Login Required) ---
+// Protected Routes
 Route::middleware('auth:sanctum')->group(function () {
     
     // User Info (Current Person)
@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
 
-    // --- NEW: All Users (Required for Admin Dashboard) ---
+    // All Users
     Route::get('/users', function () {
         return \App\Models\User::all();
     });
@@ -41,7 +41,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Update Order Status (Admin/Staff)
     Route::patch('/orders/{id}/status', [OrderController::class, 'updateStatus']);
 
-    // --- Product Management (Admin) ---
+    // Product Management
     Route::post('/products', [ProductController::class, 'store']);
     Route::put('/products/{id}', [ProductController::class, 'update']);
     Route::delete('/products/{id}', [ProductController::class, 'destroy']);

@@ -16,11 +16,11 @@ use App\Http\Controllers\CheckoutController;
 
 Route::redirect('/', '/login');
 
-// --- AUTH ROUTES ---
+// Auth Routes
 Route::get('/login', UserLogin::class)->name('login');
 Route::get('/admin/login', AdminLogin::class)->name('admin.login');
 
-// --- PROTECTED ROUTES ---
+// Protected Routes
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

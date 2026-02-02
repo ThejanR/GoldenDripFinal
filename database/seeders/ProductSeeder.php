@@ -10,17 +10,17 @@ class ProductSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. DISABLE SAFETY LOCK (To clear tables without errors)
+        // Disable foreign key constraints
         Schema::disableForeignKeyConstraints();
 
-        // 2. Clear existing data so we don't get duplicates
+        // Clear existing data
         DB::table('products')->truncate();
         DB::table('categories')->truncate();
 
-        // 3. RE-ENABLE SAFETY LOCK
+        // Enable foreign key constraints
         Schema::enableForeignKeyConstraints();
 
-        // 4. Create Categories & Capture their IDs
+        // Create Categories
         // We save the ID (like '1') into a variable so we can use it later
         $hotCoffeeId = DB::table('categories')->insertGetId([
             'name' => 'Hot Coffee', 'slug' => 'hot-coffee', 'image' => 'images/latte.png', 'created_at' => now(), 'updated_at' => now()
@@ -38,7 +38,7 @@ class ProductSeeder extends Seeder
             'name' => 'Sweets', 'slug' => 'sweets', 'image' => 'images/chocodo.png', 'created_at' => now(), 'updated_at' => now()
         ]);
 
-        // 5. Insert Products (Linked by ID)
+        // Insert Products
         // Notice we use 'category_id' => $variable, NOT 'category' => 'text'
         DB::table('products')->insert([
             // --- HOT COFFEE ---
