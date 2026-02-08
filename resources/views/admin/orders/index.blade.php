@@ -143,7 +143,6 @@
 
     <script>
         function updateOrderStatus(orderId, newStatus) {
-            // Optimistic UI update (optional, but good UX)
             
             axios.patch(`/api/orders/${orderId}/status`, {
                 status: newStatus

@@ -10,9 +10,15 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $orders = $request->user()->orders()->latest()->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $orders,
+            'message' => 'Orders retrieved successfully'
+        ]);
     }
 
     /**

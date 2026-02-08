@@ -11,7 +11,6 @@ class AdminDashboard extends Component
 
     public function mount()
     {
-        // FIX: Direct Database Access
         // Only fetch users if the current person is actually an admin
         if (auth()->user()->user_type === 'admin') {
             $this->users = User::all();

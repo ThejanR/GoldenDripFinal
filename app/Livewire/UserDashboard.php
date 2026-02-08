@@ -16,7 +16,7 @@ class UserDashboard extends Component
 
     public function mount()
     {
-        // 1. Site Info (Still static for now)
+        // 1. Site Info 
         $this->siteInfo = [
             'address' => '123 Coffee Street, Colombo 07',
             'phone' => '+94 11 234 5678',
@@ -27,7 +27,7 @@ class UserDashboard extends Component
         // 2. Dynamic Stats
         $this->stats = [
             ['number' => '5000+', 'label' => 'Happy Customers'],
-            // 👇 MAGIC: Automatically counts your actual products!
+            // xAutomatically counts your actual products!
             ['number' => Product::count() . '+', 'label' => 'Coffee Varieties'], 
             ['number' => '15+', 'label' => 'Years Experience'],
         ];
